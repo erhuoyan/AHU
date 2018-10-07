@@ -1,0 +1,641 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Made with Remarkable!
+  </title>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css" rel="stylesheet"/>
+  <style type="text/css">
+   body,table tr{background-color:#fff}table tr td,table tr th{border:1px solid #ccc;text-align:left;padding:6px 13px;margin:0}pre code,table,table tr{padding:0}hr,pre code{background:0 0}body{font:16px Helvetica,Arial,sans-serif;line-height:1.4;color:#333;word-wrap:break-word;padding:10px 15px}strong,table tr th{font-weight:700}h1{font-size:2em;margin:.67em 0;text-align:center}h2{font-size:1.75em}h3{font-size:1.5em}h4{font-size:1.25em}h1,h2,h3,h4,h5,h6{font-weight:700;position:relative;margin-top:15px;margin-bottom:15px;line-height:1.1}h1,h2{border-bottom:1px solid #eee}hr{height:0;margin:15px 0;overflow:hidden;border:0;border-bottom:1px solid #ddd}a{color:#4183C4}a.absent{color:#c00}ol,ul{padding-left:15px;margin-left:5px}ol{list-style-type:lower-roman}table tr{border-top:1px solid #ccc;margin:0}table tr:nth-child(2n){background-color:#aaa}table tr td :first-child,table tr th :first-child{margin-top:0}table tr td:last-child,table tr th :last-child{margin-bottom:0}img{max-width:100%}blockquote{padding:0 15px;border-left:4px solid #ccc}code,tt{margin:0 2px;padding:0 5px;white-space:nowrap;border:1px solid #eaeaea;background-color:#f8f8f8;border-radius:3px}pre code{margin:0;white-space:pre;border:none}.highlight pre,pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}
+  </style>
+ </head>
+ <body>
+  <h1 id="_1">
+   <center>
+    “五子棋程序”实验报告
+   </center>
+  </h1>
+  <h2 id="_2">
+   实验一：
+  </h2>
+  <h3 id="easyx">
+   <center>
+    基于easyx的五子棋程序
+   </center>
+  </h3>
+  <h4 id="_3">
+   <br/>
+   【实验目的】
+  </h4>
+  <p>
+   <br/>
+   1. 参考www.easx.cn上教程，实现一个五子棋程序。
+   <br/>
+   <br/>
+   2. 棋盘可以自己画，对弈程序请自行在网上找相关代码。
+   <br/>
+   <br/>
+   3.在实验楼上提交报告，代码群里由班发统一提交。
+  </p>
+  <h4 id="_4">
+   <br/>
+   【实验内容】
+  </h4>
+  <h6 id="1-easyx">
+   1. 安装easyx:
+   <a href="https://www.easyx.cn/">
+    下载地址
+   </a>
+  </h6>
+  <p>
+   安装界面
+  </p>
+  <p>
+   <br/>
+  </p>
+  <center>
+   <img alt="" src="https://i.imgur.com/5zbGC5K.png"/>
+  </center>
+  <h6 id="2">
+   2. 代码片段
+  </h6>
+  <ul>
+   <li>
+    <font color="FF0000">
+     各类头文件及自定义函数
+    </font>
+   </li>
+  </ul>
+  <pre><code>#include "stdio.h"
+#include "graphics.h"
+#include "conio.h"
+#include "windows.h"
+
+void init_system();//初始化系统
+void close_system();//关闭系统
+void init_globales();//初始化参数
+
+void play_chess();//开始五子棋游戏
+void gamestart();//开始下棋
+int  count_xyk_by_message(MOUSEMSG *m, int *x, int *y, int *a, int *b);//计算鼠标所在区域状态
+int  judge(int a, int b, int c, int chess[][15]);//判断胜负条件
+void regret(int x2, int y2, int chess[15][15], int chessbox[][2]);//悔棋
+
+void draw_chessmen(int x, int y, int num, int a, int b, int chess[][15]);//绘制黑白棋子
+void draw_chessboard();//画棋盘、菜单、状态框，画标题
+void text();//绘制标题
+void draw_menu();//绘制菜单
+void over_black();//绘制黑棋胜字样
+void over_white();//绘制白棋胜字样
+void position();//绘制状态栏及内容
+void text_black();//绘制黑棋下字样
+void text_white();//绘制白棋下字样
+void draw_regret(int m, int n, int x2, int y2);//所有悔棋情况
+void draw_re(int x2, int y2);//绘制悔棋棋子
+</code></pre>
+  <p>
+   -
+   <font color="FF0000">
+    绘制棋盘
+   </font>
+  </p>
+  <pre><code>void draw_chessboard()
+{
+    int i;
+//  loadimage(NULL, "E:\\个人\\PICTURE\\123.jpg");
+    setbkcolor(BLACK);
+    cleardevice();/*用背景色清空屏幕*/
+    setlinestyle(PS_SOLID, 1);
+    setlinecolor(WHITE);
+    rectangle(m_x_box, m_y_box, m_x_box1, m_y_box1);
+    setfillcolor(RGB(172, 81, 24));
+    setfillstyle(BS_SOLID);
+    floodfill((m_x0 + m_x01) / 2, (m_y0 + m_y01) / 2, WHITE);
+
+    setlinestyle(PS_SOLID, 2);
+    setlinecolor(BLACK);
+    rectangle(m_x0 - 4, m_y0 - 4, m_x01 + 4, m_y01 + 4);
+
+    setlinestyle(PS_SOLID, 1);
+    setlinecolor(BLACK);
+    rectangle(m_x0, m_y0, m_x01, m_y01);
+
+    for (i = m_x0 + m_wh; i &lt; m_x01; i += m_wh)//绘制交叉线
+    {
+        line(i, m_y0, i, m_y01);
+    }
+    for (i = m_y0 + m_wh; i &lt; m_y01; i += m_wh)
+    {
+        line(m_x0, i, m_x01, i);
+    }
+
+    setlinecolor(BLACK);
+    setfillcolor(BLACK);/*绘制画笔颜色以及填充颜色*/
+
+    fillcircle(m_x0 + m_wh * 3, m_y0 + m_wh * 3, 3);//绘制星位
+    fillcircle(m_x0 + m_wh * 11, m_y0 + m_wh * 3, 3);
+    fillcircle(m_x0 + m_wh * 3, m_y0 + m_wh * 11, 3);
+    fillcircle(m_x0 + m_wh * 11, m_y0 + m_wh * 11, 3);
+    fillcircle(m_x0 + m_wh * 7, m_y0 + m_wh * 7, 3);
+
+    draw_menu();/*绘制菜单*/
+    position();/*绘制状态框*/
+    text();/*绘制标题*/
+}
+
+</code></pre>
+  <ul>
+   <li>
+    <font color="FF0000">
+     绘制棋子
+    </font>
+   </li>
+  </ul>
+  <pre><code>void draw_chessmen(int x, int y, int num, int a, int b, int chess[][15])
+{
+    if (num % 2 == 0)
+    {
+        setlinecolor(BLACK);
+        setfillcolor(BLACK);
+        fillcircle(x, y, 15);
+        chess[a][b] = NUM_BLACK;
+    }
+
+    if (num % 2 != 0)
+    {
+        setlinecolor(WHITE);
+        setfillcolor(WHITE);
+        fillcircle(x, y, 15);
+        chess[a][b] = NUM_WHITE;
+    }
+}
+
+</code></pre>
+  <ul>
+   <li>
+    <font color="FF0000">
+     判断胜负
+    </font>
+   </li>
+  </ul>
+  <pre><code>int  judge(int a, int b, int c, int chess[][15])
+{
+    int i, j, n1, n2; //i 表示行，j表示列
+    while (1)
+    {
+        n1 = 0;
+        n2 = 0;
+        /*水平向左统计同种颜色棋子个数*/
+        for (i = a, j = b; j &gt;= 0; j--)
+        {
+            if (chess[i][j] == c)
+                n1++;
+            else
+                break;
+        }
+        /*水平向右统计同种颜色棋子个数*/
+        for (i = a, j = b; j &lt;= m_row1; j++)
+        {
+            if (chess[i][j] == c)
+                n2++;
+            else
+                break;
+        }
+        if (n1 + n2 - 1 &gt;= 5)
+        {
+            return(1);
+            break;
+        }
+        /*垂直向上统计同种颜色棋子个数*/
+        n1 = 0;
+        n2 = 0;
+        for (i = a, j = b; i &gt;= 0; i--)
+        {
+            if (chess[i][j] == c)
+                n1++;
+            else
+                break;
+        }
+        /*垂直向下统计同种颜色棋子个数*/
+        for (i = a, j = b; i &lt;= m_row1; i++)
+        {
+            if (chess[i][j] == c)
+                n2++;
+            else
+                break;
+        }
+        if (n1 + n2 - 1 &gt;= 5)
+        {
+            return(1);
+            break;
+        }
+        /*向左上方统计同种颜色棋子个数*/
+        n1 = 0;
+        n2 = 0;
+        for (i = a, j = b; i &gt;= 0, j &gt;= 0; i--, j--)
+        {
+            if (chess[i][j] == c)
+                n1++;
+            else
+                break;
+        }
+        /*向右下方统计同种颜色棋子个数*/
+        for (i = a, j = b; i &lt;= m_row1, j &lt;= m_row1; i++, j++)
+        {
+            if (chess[i][j] == c)
+                n2++;
+            else
+                break;
+        }
+        if (n1 + n2 - 1 &gt;= 5)
+        {
+            return(1);
+            break;
+        }
+        /*向右上方统计同种颜色棋子个数*/
+        n1 = 0;
+        n2 = 0;
+        for (i = a, j = b; i &gt;= 0, j &lt;= m_row1; i--, j++)
+        {
+            if (chess[i][j] == c)
+                n1++;
+            else
+                break;
+        }
+        /*向左下方统计同种颜色棋子个数*/
+        for (i = a, j = b; i &lt;= m_row1, j &gt;= 0; i++, j--)
+        {
+            if (chess[i][j] == c)
+                n2++;
+            else
+                break;
+        }
+
+        if (n1 + n2 - 1 &gt;= 5)
+        {
+            return(1);
+            break;
+        }
+        return(0);
+        break;
+    }
+}
+</code></pre>
+  <h6 id="3">
+   3.测试结果
+  </h6>
+  <ul>
+   <li>
+    <font color="#FFFF00">
+     开始界面测试
+    </font>
+   </li>
+  </ul>
+  <p>
+  </p>
+  <center>
+   <img alt="" src="https://i.imgur.com/t4wj7wh.png"/>
+  </center>
+  <ul>
+   <li>
+    <font color="#FFFF00">
+     输赢界面测试
+    </font>
+   </li>
+  </ul>
+  <p>
+  </p>
+  <center>
+   <img alt="" src="https://i.imgur.com/R2pHOTZ.png"/>
+  </center>
+  <br/>
+  <br/>
+  <h6 id="4">
+   4.参考博客及源码：
+  </h6>
+  <p>
+   <br/>
+   <a href="https://blog.csdn.net/qq_41728697/article/details/80990917">
+    https://blog.csdn.net/qq_41728697/article/details/80990917
+   </a>
+  </p>
+  <p>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+  </p>
+  <h2 id="_5">
+   实验二：
+  </h2>
+  <h3 id="qt">
+   <center>
+    基于Qt的五子棋程序
+   </center>
+  </h3>
+  <h4 id="_6">
+   <br/>
+   【实验目的】
+  </h4>
+  <ol>
+   <li>
+    借用Qt开发平台编写能在Linux系统中运行的五子棋程序。
+   </li>
+   <li>
+    在ubuntu下安装Qt。
+   </li>
+   <li>
+    测试五子棋程序。
+   </li>
+  </ol>
+  <h4 id="_7">
+   <br/>
+   【实验内容】
+  </h4>
+  <h6 id="1-qt">
+   <br/>
+   1. 安装Qt:
+  </h6>
+  <p>
+   <a href="https://download.qt.io/official_releases/qt/5.11/5.11.2/">
+    安装地址
+   </a>
+  </p>
+  <p>
+   <br/>
+   打开网址显示如下界面：
+   <br/>
+   <img alt="" src="https://i.imgur.com/T1pIEFO.png"/>
+  </p>
+  <p>
+   <br/>
+   Linux系统选择那个.run安装文件。(我这里选择qt-opensource-linux-x64-5.11.2.run)
+   <br/>
+   <br/>
+   下载完成后cd到qt-opensource-linux-x64-5.11.2.run所在的目录下.
+   <br/>
+   <br/>
+   在命令端口中输入安装命令：sudo ./qt-opensource-linux-x64-5.11.2.run
+   <br/>
+   <br/>
+   弹出如下界面：
+  </p>
+  <p>
+   <br/>
+  </p>
+  <center>
+   <img alt="" src="https://i.imgur.com/oWFZeen.png"/>
+  </center>
+  <br/>
+  <br/>
+  按照提示一步步安装完成。
+  <br/>
+  <br/>
+  安装 libgl1-mesa-dev
+  <br/>
+  <br/>
+  在命令端口中输入命令：sudo apt-get install libgl1-mesa-dev 进行安装。
+  <br/>
+  <br/>
+  打开Qt Creator如图：
+  <br/>
+  <br/>
+  <img alt="" src="https://i.imgur.com/FKx7Hmm.png"/>
+  <h6 id="2_1">
+   <br/>
+   2. 代码片段
+  </h6>
+  <ul>
+   <li>
+    <font color="#FF0000">
+     棋子类Item.h：
+    </font>
+    <br/>
+    <br/>
+    包含一个QPoint圆心坐标，
+    <br/>
+    <br/>
+    和一个bool变量，
+    <br/>
+    <br/>
+    代表是黑方还是白方
+   </li>
+  </ul>
+  <pre><code>#pragma once
+#include "qvector.h"
+
+class Item
+{
+public:
+    Item(void);
+    Item(QPoint pt,bool bBlack);
+    ~Item(void);
+
+    bool operator==(const Item &amp;t1)const
+    {
+        return (m_pt == t1.m_pt) &amp;&amp; (m_bBlack == t1.m_bBlack);
+    }
+
+    QPoint m_pt;
+    bool m_bBlack;
+};
+</code></pre>
+  <ul>
+   <li>
+    <font color="#FF0000">
+     MainWindow主窗口类
+    </font>
+    <br/>
+    <br/>
+    QVector
+    <item>
+     m_items 保存所有棋子。
+    </item>
+   </li>
+  </ul>
+  <pre><code>#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
+
+#include &lt;QMainWindow&gt;
+#include "Item.h"
+#include "qmap.h"
+
+namespace Ui {
+class MainWindow;
+}
+
+#define CHESS_ROWS      15
+#define CHESS_COLUMES   15
+#define RECT_WIDTH      50
+#define RECT_HEIGHT     50
+
+class MainWindow : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    explicit MainWindow(QWidget *parent = 0);
+    ~MainWindow();
+
+protected:
+    void paintEvent(QPaintEvent *);
+    void mousePressEvent(QMouseEvent *);
+private:
+    void DrawChessboard();
+    void DrawItems();
+    void DrawItemWithMouse();
+
+    void DrawChessAtPoint(QPainter&amp; painter,QPoint&amp; pt);
+
+    int CountNearItem(Item item,QPoint ptDirection);    //统计某个方向(共8个方向)上的相连个数，用QPoint表示统计方向，如(1,1)表示右下方,（-1,0）表示向左
+    //bool FindItem(Item item);
+private:
+    Ui::MainWindow *ui;
+
+    QVector&lt;Item&gt; m_items;
+    bool m_bIsBlackTurn;    //当前该黑棋下
+};
+
+#endif // MAINWINDOW_H
+</code></pre>
+  <ul>
+   <li>
+    <font color="FF0000">
+     判断是否五子连的算法：
+    </font>
+    （统计某个棋子item在某个方向ptDirection上，相邻的同色棋子数目）
+    <br/>
+    <br/>
+    方向用QPoint来表示，是取8个方向上1个单位坐标的点，例如：向上（0,1）、向右上（1,1）、向右（1,0）等
+   </li>
+  </ul>
+  <pre><code>int MainWindow::CountNearItem(Item item,QPoint ptDirection)
+{
+    int nCount = 0;
+    item.m_pt += ptDirection;
+
+    while (m_items.contains(item))
+    {
+        nCount++;
+        item.m_pt += ptDirection;
+    }
+    return nCount;
+}
+</code></pre>
+  <ul>
+   <li>
+    <font color="FF0000">
+     鼠标点击消息：
+    </font>
+   </li>
+  </ul>
+  <pre><code> void MainWindow::mousePressEvent(QMouseEvent * e)
+{
+    //求鼠标点击处的棋子点pt
+    QPoint pt;
+    pt.setX( (e-&gt;pos().x() ) / RECT_WIDTH);
+    pt.setY( (e-&gt;pos().y() ) / RECT_HEIGHT);
+
+    //如果已存在棋子，就什么也不做
+    for (int i = 0; i&lt;m_items.size(); i++)
+    {
+        Item item = m_items[i];
+        if (item.m_pt == pt)
+        {
+            //已有棋子
+            return;
+        }
+    }
+    //不存在棋子，就下一个
+    Item item(pt,m_bIsBlackTurn);
+    m_items.append(item);
+
+    //统计4个方向是否五子连
+    int nLeft =         CountNearItem(item,QPoint(-1,0));
+    int nLeftUp =       CountNearItem(item,QPoint(-1,-1));
+    int nUp =           CountNearItem(item,QPoint(0,-1));
+    int nRightUp =      CountNearItem(item,QPoint(1,-1));
+    int nRight =        CountNearItem(item,QPoint(1,0));
+    int nRightDown =    CountNearItem(item,QPoint(1,1));
+    int nDown =         CountNearItem(item,QPoint(0,1));
+    int nLeftDown =     CountNearItem(item,QPoint(-1,1));
+    if ( (nLeft + nRight) &gt;= 4 ||
+         (nLeftUp + nRightDown) &gt;= 4 ||
+         (nUp + nDown) &gt;= 4 ||
+         (nRightUp + nLeftDown) &gt;= 4 )
+    {
+        QString str = m_bIsBlackTurn?"Black":"White";
+        QMessageBox::information(NULL,  "GAME OVER",str, QMessageBox::Yes , QMessageBox::Yes);
+        m_items.clear();
+        //NewGame();
+        return;
+    }
+    //该另一方下棋了
+    m_bIsBlackTurn = !m_bIsBlackTurn;
+}
+</code></pre>
+  <h6 id="3_1">
+   3.测试结果
+  </h6>
+  <ul>
+   <li>
+    <font color="#FFFF00">
+     开始界面测试
+    </font>
+   </li>
+  </ul>
+  <p>
+   <br/>
+  </p>
+  <center>
+   <img alt="" src="https://i.imgur.com/HJtbDW4.png"/>
+  </center>
+  <ul>
+   <li>
+    <font color="#FFFF00">
+     输赢界面测试
+    </font>
+   </li>
+  </ul>
+  <p>
+   <br/>
+  </p>
+  <center>
+   <img alt="" src="https://i.imgur.com/egO69PB.png"/>
+  </center>
+  <h6 id="4_1">
+   4.参考博客及源码：
+  </h6>
+  <p>
+   <br/>
+   <a href="https://blog.csdn.net/dpsying/article/details/53770148">
+    https://blog.csdn.net/dpsying/article/details/53770148
+   </a>
+  </p>
+  <h2 id="_8">
+   心得总结：
+  </h2>
+  <p>
+   <br/>
+   MATLAB老师布置C++作业我起初是很不理解的，而且我并没有学过C++。后来我在网上找来easyx库编写的五子棋程序，在vc++6.0上运行成功后，觉得easyx库并不够强大，不仅只能在vc和vs上使用，而且不能跨平台使用。于是我就在网上寻找怎样在Linux系统上解决图形化编程。网上的答案有两个一种是Qt，另一种是gtk。而gtk依赖程序可能比较繁琐，且到现在我也没运行成功过gtk的五子棋程序。
+   <br/>
+   <br/>
+   Qt不仅可以跨品台使用而且可以在嵌入式设备上使用，解决嵌入式图形编程，对于自动化专业，嵌入式这个词很敏感。这次的实验程序可能都是直接拷贝别人的成果。一方面自己在C++领域现在可能真的很弱，一方面也想多联系一下让自己自学了半年的Linux。
+   <br/>
+   <br/>
+   最后我还想说一下写实验报告的过程。因为第一次用实验楼，我发现这里的平台与linux关系很大，让我感觉很亲切。开始写报告的时候我才知道实验报告要用markdown语法，然而在实验楼的环境里我插入图片一直失败，我便在网上找markdown编辑器，下载了markdownpad2用来将图片转为链接解决了图片插入诗派的问题。刚开始我在marxi.co上编写，后来找到atom插件的方法，我便转到atom编辑器上编辑。又查了一些markdown语法最终写完了这篇报告。感觉收获很多，觉得大学生还是要多自学点东西，不要天天打游戏的好。
+  </p>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js">
+  </script>
+  <script>
+   hljs.initHighlightingOnLoad();
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   MathJax.Hub.Config({"showProcessingMessages" : false,"messageStyle" : "none","tex2jax": { inlineMath: [ [ "$", "$" ] ] }});
+  </script>
+ </body>
+</html>
