@@ -247,9 +247,9 @@ int  judge(int a, int b, int c, int chess[][15])
 
 ## 实验二：
 
-### <center>基于Qt的五子棋程序
+### <center>基于Qt的五子棋程序</center>
 
-#### <br/>【实验目的】</br>
+#### <br>【实验目的】</br>
 1. 借用Qt开发平台编写能在Linux系统中运行的五子棋程序。
 2. 在ubuntu下安装Qt。
 3. 测试五子棋程序。
@@ -271,7 +271,7 @@ int  judge(int a, int b, int c, int chess[][15])
 <br>&emsp;在命令端口中输入命令：sudo apt-get install libgl1-mesa-dev 进行安装。
 <br>&ensp;打开Qt Creator如图：
 <br>&ensp;![](https://i.imgur.com/FKx7Hmm.png)
-###### <br>&ensp;2. 代码片段
+###### <br>&ensp;2. 代码片段</br>
 - <font color=#FF0000>棋子类Item.h：</font>
 <br>包含一个QPoint圆心坐标，
 <br>和一个bool变量，
