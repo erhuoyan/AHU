@@ -253,7 +253,7 @@ int  judge(int a, int b, int c, int chess[][15])
 1. 借用Qt开发平台编写能在Linux系统中运行的五子棋程序。
 2. 在ubuntu下安装Qt。
 3. 测试五子棋程序。
-####< br/>【实验内容】</br>
+####<br>【实验内容】</br>
 ###### <br>&ensp;1. 安装Qt:
 &ensp;[安装地址](https://download.qt.io/official_releases/qt/5.11/5.11.2/)
 
