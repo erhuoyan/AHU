@@ -3,17 +3,17 @@
 <br><center>![Alt text](https://raw.githubusercontent.com/gYANnnnn/AHU/master/picture/1.png)</center></br>
 ### <br><center><font  face="华文新魏">安徽大学电气工程及自动化学院本科实验报告</font></center></br>
 #### &ensp;<font face="Microsoft JhengHei">【课程名称】<u>&emsp;&emsp;MATLAB程序设计实验&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</u></font>
-####&ensp;<font face="Microsoft JhengHei">【课程目标】</font> <font face="宋体" size=4>（依据教学大纲）</font>
+#### &ensp;<font face="Microsoft JhengHei">【课程目标】</font> <font face="宋体" size=4>（依据教学大纲）</font>
 #### &ensp;<font face="Microsoft JhengHei">【实验名称】<u>&emsp;&emsp;基于easy和Qt的五子棋程序&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</u></font>
-####&ensp;<font face="Microsoft JhengHei">【实验目的】</font>
+#### &ensp;<font face="Microsoft JhengHei">【实验目的】</font>
  1. 参考www.easx.cn上教程，实现一个五子棋程序。
 
  2. 借用Qt开发平台编写能在Linux系统中运行的五子棋程序。
-####&ensp;<font face="Microsoft JhengHei">【实验原理及方法】</font>
-2. 棋盘可以自己画，对弈程序请自行在网上找相关代码。
+#### &ensp;<font face="Microsoft JhengHei">【实验原理及方法】</font>
+1. 棋盘可以自己画，对弈程序请自行在网上找相关代码。
 
-3. 在实验楼上提交报告，代码群里由班发统一提交。
-####&ensp;<font face="Microsoft JhengHei">【实验内容及过程】</font>
+2. 在实验楼上提交报告，代码群里由班发统一提交。
+#### &ensp;<font face="Microsoft JhengHei">【实验内容及过程】</font>
 ##### <center>基于easyx的五子棋程序</center>
 
 ###### &ensp;1. 安装easyx:[下载地址](https://www.easyx.cn/)
@@ -231,7 +231,7 @@ int  judge(int a, int b, int c, int chess[][15])
 	}
 }
 ```
-#####<center>基于Qt的五子棋程序</center>
+##### <center>基于Qt的五子棋程序</center>
 ###### <br>&ensp;1. 安装Qt:
 &ensp;[安装地址](https://download.qt.io/official_releases/qt/5.11/5.11.2/)
 
@@ -389,7 +389,7 @@ int MainWindow::CountNearItem(Item item,QPoint ptDirection)
 }
 ```
 
-####&ensp;<font face="Microsoft JhengHei">【实验结果】</font>
+#### &ensp;<font face="Microsoft JhengHei">【实验结果】</font>
 - <font color=#FFFF00>开始界面测试</font>
 
 &emsp;<center>![](https://i.imgur.com/t4wj7wh.png)</center>
@@ -406,12 +406,12 @@ int MainWindow::CountNearItem(Item item,QPoint ptDirection)
 
 <br><center>![](https://i.imgur.com/egO69PB.png)</center>
 
-####&ensp;<font face="Microsoft JhengHei">【数据分析及处理】</font>
+#### &ensp;<font face="Microsoft JhengHei">【数据分析及处理】</font>
 ###### &ensp;4.参考博客及源码：
 <br> &emsp; https://blog.csdn.net/qq_41728697/article/details/80990917
 <br> &emsp; https://blog.csdn.net/dpsying/article/details/53770148</br>
 
-####&ensp;<font face="Microsoft JhengHei">【总结或讨论】</font>
+#### &ensp;<font face="Microsoft JhengHei">【总结或讨论】</font>
 <br> &emsp;&emsp;MATLAB老师布置C++作业我起初是很不理解的，而且我并没有学过C++。后来我在网上找来easyx库编写的五子棋程序，在vc++6.0上运行成功后，觉得easyx库并不够强大，不仅只能在vc和vs上使用，而且不能跨平台使用。于是我就在网上寻找怎样在Linux系统上解决图形化编程。网上的答案有两个一种是Qt，另一种是gtk。而gtk依赖程序可能比较繁琐，且到现在我也没运行成功过gtk的五子棋程序。
 <br>&emsp;&emsp;Qt不仅可以跨品台使用而且可以在嵌入式设备上使用，解决嵌入式图形编程，对于自动化专业，嵌入式这个词很敏感。这次的实验程序可能都是直接拷贝别人的成果。一方面自己在C++领域现在可能真的很弱，一方面也想多联系一下让自己自学了半年的Linux。
 <br>&emsp;&emsp;最后我还想说一下写实验报告的过程。因为第一次用实验楼，我发现这里的平台与linux关系很大，让我感觉很亲切。开始写报告的时候我才知道实验报告要用markdown语法，然而在实验楼的环境里我插入图片一直失败，我便在网上找markdown编辑器，下载了markdownpad2用来将图片转为链接解决了图片插入诗派的问题。刚开始我在marxi.co上编写，后来找到atom插件的方法，我便转到atom编辑器上编辑。又查了一些markdown语法最终写完了这篇报告。感觉收获很多，觉得大学生还是要多自学点东西，不要天天打游戏的好。
