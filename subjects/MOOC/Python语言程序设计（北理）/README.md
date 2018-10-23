@@ -10,7 +10,7 @@
  - 辅助平台：[Python123](https://www.python123.io/) 
  - 配套教材 ：《Python语言程序设计基础(第2版)》（高等教育出版社）
  
- &emsp;&emsp;![](https://edu-image.nosdn.127.net/15201AAA223D4CACA24B62692E9F9568.jpg?imageView&thumbnail=890x0&quality=100) 
+ &emsp;&emsp;![](https://python123.io/images/04/20/7b336f4795aa9d6ff48b77a0a7fd.jpg) 
 
 #### 内容
 
