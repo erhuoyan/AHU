@@ -66,7 +66,10 @@ sensor = [ 0 70.6432 68.3470 72.3469 67.6751 73.1764;
           19 69.6354 63.2632 68.1606 64.4190 66.4785];
 [sensor_times, sensor_nmu] = size(sensor);
 sensor_nmu = sensor_nmu - 1;
-sensor_times = sensor_times;
+[sensor_max,sensor_maxad] = max(sensor(:,2:6));
+[sensor_min,sensor_minad] = min(sensor(:,2:6));
+sensor_timesmax = sensor(sensor_maxad,1)';
+sensor_timesmin = sensor(sensor_minad,1)';
 
 % 4.6
 kPa = [0:100]';
@@ -204,16 +207,16 @@ ans5_17a = [t', d'];
 figure('name', '5.17')
 subplot(2,2,1)
 plot(t, d)
-title('x-y绾挎?鐩磋鍧愭爣绯')
+title('x-y线?直角坐标')
 subplot(2,2,2)
 semilogx(t, d)
-title('x杞村鏁板潗鏍囩郴')
+title('x轴对数坐标系')
 subplot(2,2,3)
 semilogy(t, d)
-title('y杞村鏁板潗鏍囩郴')
+title('y轴对数坐标系')
 subplot(2,2,4)
 loglog(t, d)
-title('鍙屽鏁板潗鏍囩郴')
+title('双对数坐标系')
 
 % 5.18
 t = [1971 1972 1974 1979 1982 1985 1989 1993 1996 1997 1997 1999 1999 1999 2000 2003 2003 2003 2004 2006 2006 2006 2006 2007 2006 2008];
