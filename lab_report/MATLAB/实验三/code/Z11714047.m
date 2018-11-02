@@ -70,6 +70,8 @@ sensor_nmu = sensor_nmu - 1;
 [sensor_min,sensor_minad] = min(sensor(:,2:6));
 sensor_timesmax = sensor(sensor_maxad,1)';
 sensor_timesmin = sensor(sensor_minad,1)';
+sensor_mean = mean(sensor(:,2:6));
+sensor_std = std(sensor(:,2:6));
 
 % 4.6
 kPa = [0:100]';
@@ -221,6 +223,7 @@ title('双对数坐标系')
 % 5.18
 t = [1971 1972 1974 1979 1982 1985 1989 1993 1996 1997 1997 1999 1999 1999 2000 2003 2003 2003 2004 2006 2006 2006 2006 2007 2006 2008];
 d = [2300 2500 4500 29000 134000 275000 1200000 3100000 4300000 7500000 8800000 9500000 21300000 22000000 42000000 54300000 105900000 220000000 592000000 241000000 291000000 582000000 681000000 789000000 17000000000 2000000000];
+figure
 semilogy(t,d,'-o');
 
 % 5.19
@@ -229,6 +232,7 @@ k0 = 10;
 R= 8.314;
 T = 300:1000;
 k = k0 .* exp(-Q./(R.*T));
+figure
 subplot(2,1,1)
 plot(T, k)
 subplot(2,1,2)
@@ -243,11 +247,14 @@ hist(G)
 
 % 5.21
 grades=[2, 4, 8, 4, 2];
+figure
 pie(grades,{'A','B','C','D','E'})
+figure
 pie3(grades)
 
 % 5.23
 num = randn(1, 1000)*3.5 + 70;
+figure
 hist(num)
 
 % 5.27
