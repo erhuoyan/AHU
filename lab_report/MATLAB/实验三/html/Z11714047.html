@@ -67,9 +67,9 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
   </style></head><body><div class="content"><pre class="codeinput"><span class="comment">% 4.1</span>
-a = [15 3 22;3 8 5;14 3 82;]
-b = [1;5;6]
-c = [12 18 5 2]
+a = [15 3 22;3 8 5;14 3 82;];
+b = [1;5;6];
+c = [12 18 5 2];
 d = a(:, 3)
 e = [b, d]
 f = [b; d]
@@ -278,12 +278,12 @@ polar(theta, r4)
 <span class="comment">% a</span>
 t = 0:2:45;
 d = 30*(2.^(t/2));
-ans5_17a = [t', d'];
+ans5_17a = [t', d']
 <span class="comment">% b</span>
-figure(<span class="string">'name'</span>, <span class="string">'5.17'</span>)
+figure
 subplot(2,2,1)
 plot(t, d)
-title(<span class="string">'x-y&#32447;?&#30452;&#35282;&#22352;&#26631;'</span>)
+title(<span class="string">'xy&#32447;&#24615;&#30452;&#35282;&#22352;&#26631;'</span>)
 subplot(2,2,2)
 semilogx(t, d)
 title(<span class="string">'x&#36724;&#23545;&#25968;&#22352;&#26631;&#31995;'</span>)
@@ -297,6 +297,7 @@ title(<span class="string">'&#21452;&#23545;&#25968;&#22352;&#26631;&#31995;'</s
 <span class="comment">% 5.18</span>
 t = [1971 1972 1974 1979 1982 1985 1989 1993 1996 1997 1997 1999 1999 1999 2000 2003 2003 2003 2004 2006 2006 2006 2006 2007 2006 2008];
 d = [2300 2500 4500 29000 134000 275000 1200000 3100000 4300000 7500000 8800000 9500000 21300000 22000000 42000000 54300000 105900000 220000000 592000000 241000000 291000000 582000000 681000000 789000000 17000000000 2000000000];
+figure
 semilogy(t,d,<span class="string">'-o'</span>);
 
 <span class="comment">% 5.19</span>
@@ -305,6 +306,7 @@ k0 = 10;
 R= 8.314;
 T = 300:1000;
 k = k0 .* exp(-Q./(R.*T));
+figure
 subplot(2,1,1)
 plot(T, k)
 subplot(2,1,2)
@@ -318,11 +320,14 @@ figure
 hist(G)
 
 <span class="comment">% 5.21</span>
+figure
 grades=[2, 4, 8, 4, 2];
 pie(grades,{<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>,<span class="string">'D'</span>,<span class="string">'E'</span>})
+figure
 pie3(grades)
 
 <span class="comment">% 5.23</span>
+figure
 num = randn(1, 1000)*3.5 + 70;
 hist(num)
 
@@ -379,25 +384,6 @@ subplot(1,2,2)
 surfc(Z)
 title(<span class="string">'Comiation Surfance and Contour Plot'</span>)
 </pre><pre class="codeoutput">
-a =
-
-    15     3    22
-     3     8     5
-    14     3    82
-
-
-b =
-
-     1
-     5
-     6
-
-
-c =
-
-    12    18     5     2
-
-
 d =
 
     22
@@ -786,13 +772,40 @@ magic_xy_sum =
 
    111
 
-</pre><img vspace="5" hspace="5" src="Z11714047_01.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_02.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_03.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_04.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_05.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_06.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_07.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_08.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_09.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_10.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_11.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_12.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_13.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_14.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_15.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_16.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_17.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_18.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_19.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_20.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_21.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016a</a><br></p></div><!--
+
+ans5_17a =
+
+           0          30
+           2          60
+           4         120
+           6         240
+           8         480
+          10         960
+          12        1920
+          14        3840
+          16        7680
+          18       15360
+          20       30720
+          22       61440
+          24      122880
+          26      245760
+          28      491520
+          30      983040
+          32     1966080
+          34     3932160
+          36     7864320
+          38    15728640
+          40    31457280
+          42    62914560
+          44   125829120
+
+</pre><img vspace="5" hspace="5" src="Z11714047_01.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_02.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_03.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_04.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_05.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_06.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_07.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_08.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_09.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_10.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_11.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_12.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_13.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_14.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_15.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_16.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_17.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_18.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_19.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_20.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_21.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_22.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_23.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_24.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_25.png" alt=""> <img vspace="5" hspace="5" src="Z11714047_26.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016a</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 
 % 4.1
-a = [15 3 22;3 8 5;14 3 82;]
-b = [1;5;6]
-c = [12 18 5 2]
+a = [15 3 22;3 8 5;14 3 82;];
+b = [1;5;6];
+c = [12 18 5 2];
 d = a(:, 3)
 e = [b, d]
 f = [b; d]
@@ -1001,12 +1014,12 @@ polar(theta, r4)
 % a
 t = 0:2:45;
 d = 30*(2.^(t/2));
-ans5_17a = [t', d'];
+ans5_17a = [t', d']
 % b
-figure('name', '5.17')
+figure
 subplot(2,2,1)
 plot(t, d)
-title('x-y线?直角坐标')
+title('xy线性直角坐标')
 subplot(2,2,2)
 semilogx(t, d)
 title('x轴对数坐标系')
@@ -1020,6 +1033,7 @@ title('双对数坐标系')
 % 5.18
 t = [1971 1972 1974 1979 1982 1985 1989 1993 1996 1997 1997 1999 1999 1999 2000 2003 2003 2003 2004 2006 2006 2006 2006 2007 2006 2008];
 d = [2300 2500 4500 29000 134000 275000 1200000 3100000 4300000 7500000 8800000 9500000 21300000 22000000 42000000 54300000 105900000 220000000 592000000 241000000 291000000 582000000 681000000 789000000 17000000000 2000000000];
+figure
 semilogy(t,d,'-o');
 
 % 5.19
@@ -1028,6 +1042,7 @@ k0 = 10;
 R= 8.314;
 T = 300:1000;
 k = k0 .* exp(-Q./(R.*T));
+figure
 subplot(2,1,1)
 plot(T, k)
 subplot(2,1,2)
@@ -1041,11 +1056,14 @@ figure
 hist(G)
 
 % 5.21
+figure
 grades=[2, 4, 8, 4, 2];
 pie(grades,{'A','B','C','D','E'})
+figure
 pie3(grades)
 
 % 5.23
+figure
 num = randn(1, 1000)*3.5 + 70;
 hist(num)
 
