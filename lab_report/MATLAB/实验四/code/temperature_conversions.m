@@ -1,3 +1,5 @@
+% 6.15
+% temperature_conversions
 function [] = temperature_conversions
 
 % Problem (a)
@@ -22,7 +24,7 @@ t3 = [t_C',t_F'];
 disp(t3)
 
 function result = F_to_K(x)
-result = (5/9).*(x+459.67); 
+result = (5/9).*(x+459.67);
 
 function result = C_to_R(x)
 result = (9/5)*x + 32 + 459.67;
