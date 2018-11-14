@@ -753,6 +753,9 @@ Enter the Line number10
 > ```
 
 > % 7.16
+>
+> ![](https://raw.githubusercontent.com/gYANnnnn/AHU/master/lab_report/MATLAB/%E5%AE%9E%E9%AA%8C%E4%BA%94/picture/Z11714047.png)
+>
 > ```
 > z = 
 >   1.3693
