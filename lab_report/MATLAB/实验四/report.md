@@ -161,6 +161,117 @@
    disp(time_zero)
    % 6.15
    temperature_conversions
+   
+   % 7.1
+   x = input(' Enter a value : ');
+   y = sin(x);
+   disp('x = ')
+   disp(x)
+   disp('sin(x) = ')
+   disp(y)
+   
+   % 7.2
+   x = input(' Enter a values for x in brackets = ');
+   y = max(x);
+   disp('x = ')
+   disp(x);
+   disp(' The maxinum is :')
+   disp(y)
+   
+   %  7.3
+   s = input('Enter the base area : ');
+   h = input('Enter the high : ');
+   V = (1/3)*s*h;
+   disp('s = ')
+   disp(s)
+   disp('h = ')
+   disp(h)
+   disp('The volume of cone is ')
+   disp(V)
+   
+   % 7.9
+   x = 1:13;
+   y = x.*6;
+   table = [x; y];
+   fprintf('%d times 6 is %d\n',table)
+   
+   % 7.10
+   angle = 0:pi/10:2*pi;
+   sines = sin(angle);
+   mathtable = [angle;sines];
+   disp('Table for sinusoidal mathematics')
+   disp('    angle       sines')
+   fprintf('%8.2f    %8.2f\n',mathtable)
+   
+   % 7.12
+   % (a)
+   yen = 5:5:125;
+   dollar = 0.008786.*yen;
+   money_table1 = [yen;dollar];
+   disp('    JRE To USD')
+   disp('    JPY    USD')
+   fprintf('%8.2f %8.2f \n',money_table1)
+   %(b)
+   EUR = 1:2:59;
+   USD = 1.1334.*EUR;
+   money_table2 = [EUR;USD];
+   disp('    EUR To USD')
+   disp('    EUR     USD')
+   fprintf('%8.2f %8.2f \n',money_table2)
+   %(c)
+   USD = 1:10;
+   EUR = 0.8823.*USD;
+   GBP = 0.7707.*USD;
+   JPY = 113.82.*USD;
+   money_table3 = [USD;EUR;GBP;JPY];
+   disp('    Exchange rate conversion table')
+   disp('    USD      EUR      GBP    JPY')
+   fprintf('%8.2f %8.2f %8.2f %8.2f \n',money_table3)
+   
+   % 7.13
+   % (a)
+   incr = input('What temperature increments would you like calculated? ');
+   t_F = 0:incr:200;
+   t_K = (5/9).*(459.67 + t_F);
+   t1 = [t_F;t_K];
+   disp('温度转换表:华氏温度 to 开氏温度')
+   disp('华氏温度   开氏温度')
+   fprintf('%8.2f %8.2f \n', t1)
+   %(b)
+   temp_begin = input('Enter the Starting temperature: ');
+   incr = input('What temperature increments would you like calculated? ');
+   t_C = temp_begin:incr:24*incr+temp_begin;
+   t_R = (9/5)*t_C + 32 + 459.67;
+   t2 = [t_C;t_R];
+   disp('温度转换表:摄氏温度 to 兰金温度')
+   disp('摄氏温度   兰金温度')
+   fprintf('%8.2f %8.2f \n', t2)
+   %(c)
+   temp_begin = input('Enter the Starting temperature: ');
+   incr = input('What temperature increments would you like calculated? ');
+   line  = input ('Enter the Line number');
+   t_C = temp_begin:incr:(line-1)*incr+temp_begin;
+   t_F = (5/9).*t_C + 32;
+   t3 = [t_C;t_F];
+   disp('温度转换表:摄氏温度 to 华氏温度')
+   disp('摄氏温度   华氏温度')
+   fprintf('%8.2f %8.2f \n', t3)
+   
+   % 7.16
+   m = 0:pi/100:2*pi;
+   x = sin(m);
+   y = cos(m);
+   plot(x,y)
+   hold on
+   axis([-1, 1, -1,1])
+   [a1, b1] = ginput(1);
+   [a2, b2] = ginput(1);
+   c = [a1 a2];
+   d = [b1 b2];
+   plot(c, d)
+   z = sqrt((a1 - a2)^2 + (b1 - b2)^2);
+   disp ('z = ')
+   disp(z)
    ```
    - 自定义函数
    ```matlab
@@ -424,6 +535,228 @@
 
 > % 6.15    
 >结果同6.10
+
+>  % 7.1
+>  ```
+>  Enter a value : pi/6
+>  x =
+>  0.52360
+>  sin(x) =
+>  0.50000
+>  ```
+
+> % 7.2
+> ```
+> Enter a values for x in brackets = [1 5 3 8 9 22]
+> x =
+>   1    5    3    8    9   22
+> The maxinum is :
+> 22
+> ```
+
+> % 7.3
+> ```
+> Enter the base area : 2
+> Enter the high : 2
+> s =
+> 2
+> h =
+> 2
+> The volume of cone is
+> 1.3333
+> ```
+
+> % 7.9
+> ```
+> 1 times 6 is 6
+> 2 times 6 is 12
+> 3 times 6 is 18
+> 4 times 6 is 24
+> 5 times 6 is 30
+> 6 times 6 is 36
+> 7 times 6 is 42
+> 8 times 6 is 48
+> 9 times 6 is 54
+> 10 times 6 is 60
+> 11 times 6 is 66
+> 12 times 6 is 72
+> 13 times 6 is 78
+> ```
+
+> % 7.10
+> ```
+> Table for sinusoidal mathematics
+>   angle       sines
+>   0.00        0.00
+>   0.31        0.31
+>   0.63        0.59
+>   0.94        0.81
+>   1.26        0.95
+>   1.57        1.00
+>   1.88        0.95
+>   2.20        0.81
+>   2.51        0.59
+>   2.83        0.31
+>   3.14        0.00
+>   3.46       -0.31
+>   3.77       -0.59
+>   4.08       -0.81
+>   4.40       -0.95
+>   4.71       -1.00
+>   5.03       -0.95
+>   5.34       -0.81
+>   5.65       -0.59
+>   5.97       -0.31
+>   6.28       -0.00
+> ```
+
+> % 7.12
+> ```
+>     JRE To USD
+>   JPY    USD
+>   5.00     0.04
+>  10.00     0.09
+>  15.00     0.13
+>  20.00     0.18
+>  25.00     0.22
+>  30.00     0.26
+>  35.00     0.31
+>  40.00     0.35
+>  45.00     0.40
+>  50.00     0.44
+>  55.00     0.48
+>  60.00     0.53
+>  65.00     0.57
+>  70.00     0.62
+>  75.00     0.66
+>  80.00     0.70
+>  85.00     0.75
+>  90.00     0.79
+>  95.00     0.83
+> 100.00     0.88
+> 105.00     0.92
+> 110.00     0.97
+> 115.00     1.01
+> 120.00     1.05
+> 125.00     1.10
+> 
+>   EUR To USD
+>   EUR     USD
+>   1.00     1.13
+>   3.00     3.40
+>   5.00     5.67
+>   7.00     7.93
+>   9.00    10.20
+>  11.00    12.47
+>  13.00    14.73
+>  15.00    17.00
+>  17.00    19.27
+>  19.00    21.53
+>  21.00    23.80
+>  23.00    26.07
+>  25.00    28.34
+>  27.00    30.60
+>  29.00    32.87
+>  31.00    35.14
+>  33.00    37.40
+>  35.00    39.67
+>  37.00    41.94
+>  39.00    44.20
+>  41.00    46.47
+>  43.00    48.74
+>  45.00    51.00
+>  47.00    53.27
+>  49.00    55.54
+>  51.00    57.80
+>  53.00    60.07
+>  55.00    62.34
+>  57.00    64.60
+>  59.00    66.87
+>  
+> Exchange rate conversion table
+    USD      EUR      GBP    JPY
+    1.00     0.88     0.77   113.82
+    2.00     1.76     1.54   227.64
+    3.00     2.65     2.31   341.46
+    4.00     3.53     3.08   455.28
+    5.00     4.41     3.85   569.10
+    6.00     5.29     4.62   682.92
+    7.00     6.18     5.39   796.74
+    8.00     7.06     6.17   910.56
+    9.00     7.94     6.94  1024.38
+   10.00     8.82     7.71  1138.20
+> ```
+
+> % 7.13
+> ```
+> 
+> What temperature increments would you like calculated? 20
+> 温度转换表:华氏温度 to 开氏温度 
+> 华氏温度   开氏温度 
+>   0.00   255.37
+>  20.00   266.48
+>  40.00   277.59
+>  60.00   288.71
+>  80.00   299.82
+> 100.00   310.93
+> 120.00   322.04
+> 140.00   333.15
+> 160.00   344.26
+> 180.00   355.37
+> 200.00   366.48
+> 
+Enter the Starting temperature: 0
+What temperature increments would you like calculated? 100
+温度转换表:摄氏温度 to 兰金温度 
+摄氏温度   兰金温度 
+    0.00   491.67
+  100.00   671.67
+  200.00   851.67
+  300.00  1031.67
+  400.00  1211.67
+  500.00  1391.67
+  600.00  1571.67
+  700.00  1751.67
+  800.00  1931.67
+  900.00  2111.67
+ 1000.00  2291.67
+ 1100.00  2471.67
+ 1200.00  2651.67
+ 1300.00  2831.67
+ 1400.00  3011.67
+ 1500.00  3191.67
+ 1600.00  3371.67
+ 1700.00  3551.67
+ 1800.00  3731.67
+ 1900.00  3911.67
+ 2000.00  4091.67
+ 2100.00  4271.67
+ 2200.00  4451.67
+ 2300.00  4631.67
+ 2400.00  4811.67
+>
+Enter the Starting temperature: 0
+What temperature increments would you like calculated? 10
+Enter the Line number10
+温度转换表:摄氏温度 to 华氏温度
+摄氏温度   华氏温度
+    0.00    32.00
+   10.00    37.56
+   20.00    43.11
+   30.00    48.67
+   40.00    54.22
+   50.00    59.78
+   60.00    65.33
+   70.00    70.89
+   80.00    76.44
+   90.00    82.00
+> ```
+
+> % 7.16
+> ```
+> z = 
+>   1.3693
+> ```
 
 ### &ensp;<font face="Microsoft JhengHei">【数据分析及处理】</font>
 
