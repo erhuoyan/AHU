@@ -4,8 +4,8 @@ incr = input('What temperature increments would you like calculated? ');
 t_F = 0:incr:200;
 t_K = (5/9).*(459.67 + t_F);
 t1 = [t_F;t_K];
-disp('ÎÂ¶È×ª»»±í:»ªÊÏÎÂ¶È to ¿ªÊÏÎÂ¶È')
-disp('»ªÊÏÎÂ¶È   ¿ªÊÏÎÂ¶È')
+disp('æ¸©åº¦è½¬æ¢è¡¨:åæ°æ¸©åº¦ to å¼€æ°æ¸©åº¦')
+disp('åæ°æ¸©åº¦   å¼€æ°æ¸©åº¦')
 fprintf('%8.2f %8.2f \n', t1)
 
 %(b)
@@ -14,8 +14,8 @@ incr = input('What temperature increments would you like calculated? ');
 t_C = temp_begin:incr:24*incr+temp_begin;
 t_R = (9/5)*t_C + 32 + 459.67;
 t2 = [t_C;t_R];
-disp('ÎÂ¶È×ª»»±í:ÉãÊÏÎÂ¶È to À¼½ğÎÂ¶È')
-disp('ÉãÊÏÎÂ¶È   À¼½ğÎÂ¶È')
+disp('æ¸©åº¦è½¬æ¢è¡¨:æ‘„æ°æ¸©åº¦ to å…°é‡‘æ¸©åº¦')
+disp('æ‘„æ°æ¸©åº¦   å…°é‡‘æ¸©åº¦')
 fprintf('%8.2f %8.2f \n', t2)
 
 %(c)
@@ -25,6 +25,6 @@ line  = input ('Enter the Line number');
 t_C = temp_begin:incr:(line-1)*incr+temp_begin;
 t_F = (5/9).*t_C + 32;
 t3 = [t_C;t_F];
-disp('ÎÂ¶È×ª»»±í:ÉãÊÏÎÂ¶È to »ªÊÏÎÂ¶È')
-disp('ÉãÊÏÎÂ¶È   »ªÊÏÎÂ¶È')
+disp('æ¸©åº¦è½¬æ¢è¡¨:æ‘„æ°æ¸©åº¦ to åæ°æ¸©åº¦')
+disp('æ‘„æ°æ¸©åº¦   åæ°æ¸©åº¦')
 fprintf('%8.2f %8.2f \n', t3)
