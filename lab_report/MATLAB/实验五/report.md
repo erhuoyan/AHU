@@ -2,7 +2,7 @@
 <br>&emsp;<font size=4 face="宋体">实验日期 <u>&emsp;&emsp;&emsp;&ensp;&emsp;&emsp;</u>&emsp;指导教师<u> &emsp;章军&emsp;&emsp;&emsp;</u>&emsp;实验成绩<u>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</u></font></br>
 <br>![Alt text](https://raw.githubusercontent.com/gYANnnnn/AHU/master/lab_report/1.png)<br>
 
-# <font  face="华文新魏">安徽大学电气工程及自动化学院本科实验报告</font>
+#   <center><font  face="华文新魏">安徽大学电气工程及自动化学院本科实验报告</font></center>
 
 
 
