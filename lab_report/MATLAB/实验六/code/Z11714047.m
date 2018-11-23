@@ -59,15 +59,19 @@ p = primes(100);
 for i = 1:(length(p)-1)
     primes_sum(i) = p(i) * p(i+1);
 end
+disp('小于100的素数相邻两个素数的乘积：')
 disp(primes_sum)
 
 % 8.23
+clear
 Fibonacci_num = input('please enter the first and second number:');
 b = input('please enter the number of terms:');
 num_terms = 1:b;
 for i = 2:(b - 1)
     Fibonacci_num(i+1) = Fibonacci_num(i) + Fibonacci_num(i - 1);
 end
+disp('斐波那契数列：')
+disp(Fibonacci_num)
 polar(num_terms,Fibonacci_num)
 
 % 8.24
@@ -79,6 +83,8 @@ while (i < b)
     Fibonacci_num(i+1) = Fibonacci_num(i) + Fibonacci_num(i - 1);
     i = i+1;
 end
+disp('斐波那契数列：')
+disp(Fibonacci_num)
 polar(num_terms,Fibonacci_num)
 
 % 8.27

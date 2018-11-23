@@ -360,8 +360,7 @@
    result = (9/5)*x + 32;
    
    ```
-   
-   
+
 
 ### &ensp;<font face="Microsoft JhengHei">【实验结果】</font>  
 
