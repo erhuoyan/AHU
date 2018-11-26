@@ -1,0 +1,359 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Z11714047</title><meta name="generator" content="MATLAB 9.0"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-11-26"><meta name="DC.source" content="Z11714047.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">% 10.1</span>
+<span class="comment">% &#21452;&#31934;&#24230;&#35745;&#31639;</span>
+n = 1:1e7;
+harmonic = 1./n;
+partial_sum = cumsum(harmonic);
+m = 1000:1000:1e7;
+partial_sums_selected = partial_sum(m);
+plot(partial_sums_selected);
+<span class="comment">% &#21333;&#31934;&#24230;&#35745;&#31639;</span>
+n = single(1:1e7);
+harmonic = 1./n;
+partial_sum = cumsum(harmonic);
+m = 1000:1000:1e7;
+partial_sums_selected = partial_sum(m);
+hold <span class="string">on</span>
+plot(partial_sums_selected,<span class="string">':'</span>);
+legend(<span class="string">'&#21452;&#31934;&#24230;'</span>,<span class="string">'&#21333;&#31934;&#24230;'</span>)
+
+<span class="comment">% 10.6</span>
+x = char(<span class="string">'8'</span>,<span class="string">'5'</span>);
+l=length(x);
+h = [double(<span class="string">'8'</span>);double(<span class="string">'5'</span>)];
+y = num2str(h);
+table = [y x];
+fprintf(<span class="string">'&#35813;&#25968;&#32452;&#26377;%d&#20010;&#20803;&#32032;\n'</span>,l)
+fprintf(<span class="string">'%c%c&#34920;&#31034;&#23383;&#31526;%c\n'</span>,table')
+
+<span class="comment">% 10.7</span>
+A = [1 2;3 4];
+B = [10 20;30 40];
+C = [3 6;9 12];
+<span class="comment">% a</span>
+ABC(:,:,1) = A;
+ABC(:,:,2) = B;
+ABC(:,:,3) = C;
+disp(<span class="string">'ABC = '</span>)
+disp(ABC)
+
+<span class="comment">% b</span>
+Column_A1B1C1 = [A(:,1),B(:,1),C(:,1)];
+disp(<span class="string">'Column_A1B1C1 = '</span>)
+disp(Column_A1B1C1)
+
+<span class="comment">% c</span>
+Row_A2B2C2 = [A(2,:);B(2,:);C(2,:)];
+disp(<span class="string">'Row_A2B2C2'</span>)
+disp(Row_A2B2C2)
+
+<span class="comment">% d</span>
+number = ABC(1,2,3);
+fprintf(<span class="string">'&#31532;1&#34892;&#12289;&#31532;2&#21015;&#12289;&#31532;3&#39029;&#30340;&#25968;&#20540;&#26159;%d&#12290; \n'</span>,number)
+
+
+<span class="comment">% 10.12</span>
+thermocouple = [84.3 90.0 86.7
+                86.4 89.5 87.6
+                85.2 88.6 88.3
+                87.1 88.9 85.3
+                83.5 88.9 80.3
+                84.8 90.4 82.4
+                85.0 89.3 83.4
+                85.3 89.5 85.4
+                85.3 88.9 86.3
+                85.2 89.1 85.3
+                82.3 89.5 89.0
+                84.7 89.4 87.3
+                83.6 89.8 87.2];
+[rows,cols] = size(thermocouple);
+<span class="keyword">for</span> k = 1:cols
+    file_name = [<span class="string">'thermocou-ple'</span>,num2str(k)]
+    date = thermocouple(:,k)
+    save(file_name,<span class="string">'date'</span>)
+<span class="keyword">end</span>
+
+<span class="comment">% 10.16</span>
+A = [<span class="string">'aluminum'</span>];
+B = [<span class="string">'copper'</span>];
+C = [<span class="string">'iron'</span>];
+D = [<span class="string">'molybdenum'</span>];
+E = [<span class="string">'cobalt'</span>];
+my_cellarray = {A,B,C,D,E};
+celldisp(my_cellarray)
+</pre><pre class="codeoutput">&#35813;&#25968;&#32452;&#26377;2&#20010;&#20803;&#32032;
+56&#34920;&#31034;&#23383;&#31526;8
+53&#34920;&#31034;&#23383;&#31526;5
+ABC = 
+
+(:,:,1) =
+
+     1     2
+     3     4
+
+
+(:,:,2) =
+
+    10    20
+    30    40
+
+
+(:,:,3) =
+
+     3     6
+     9    12
+
+Column_A1B1C1 = 
+     1    10     3
+     3    30     9
+
+Row_A2B2C2
+     3     4
+    30    40
+     9    12
+
+&#31532;1&#34892;&#12289;&#31532;2&#21015;&#12289;&#31532;3&#39029;&#30340;&#25968;&#20540;&#26159;6&#12290; 
+
+file_name =
+
+thermocou-ple1
+
+
+date =
+
+   84.3000
+   86.4000
+   85.2000
+   87.1000
+   83.5000
+   84.8000
+   85.0000
+   85.3000
+   85.3000
+   85.2000
+   82.3000
+   84.7000
+   83.6000
+
+
+file_name =
+
+thermocou-ple2
+
+
+date =
+
+   90.0000
+   89.5000
+   88.6000
+   88.9000
+   88.9000
+   90.4000
+   89.3000
+   89.5000
+   88.9000
+   89.1000
+   89.5000
+   89.4000
+   89.8000
+
+
+file_name =
+
+thermocou-ple3
+
+
+date =
+
+   86.7000
+   87.6000
+   88.3000
+   85.3000
+   80.3000
+   82.4000
+   83.4000
+   85.4000
+   86.3000
+   85.3000
+   89.0000
+   87.3000
+   87.2000
+
+ 
+my_cellarray{1} =
+ 
+aluminum
+ 
+ 
+my_cellarray{2} =
+ 
+copper
+ 
+ 
+my_cellarray{3} =
+ 
+iron
+ 
+ 
+my_cellarray{4} =
+ 
+molybdenum
+ 
+ 
+my_cellarray{5} =
+ 
+cobalt
+ 
+</pre><img vspace="5" hspace="5" src="Z11714047_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+% 10.1
+% 双精度计算
+n = 1:1e7;
+harmonic = 1./n;
+partial_sum = cumsum(harmonic);
+m = 1000:1000:1e7;
+partial_sums_selected = partial_sum(m);
+plot(partial_sums_selected);
+% 单精度计算
+n = single(1:1e7);
+harmonic = 1./n;
+partial_sum = cumsum(harmonic);
+m = 1000:1000:1e7;
+partial_sums_selected = partial_sum(m);
+hold on
+plot(partial_sums_selected,':');
+legend('双精度','单精度')
+
+% 10.6
+x = char('8','5');
+l=length(x);
+h = [double('8');double('5')];
+y = num2str(h);
+table = [y x];
+fprintf('该数组有%d个元素\n',l)
+fprintf('%c%c表示字符%c\n',table')
+
+% 10.7
+A = [1 2;3 4];
+B = [10 20;30 40];
+C = [3 6;9 12];
+% a
+ABC(:,:,1) = A;
+ABC(:,:,2) = B;
+ABC(:,:,3) = C;
+disp('ABC = ')
+disp(ABC)
+
+% b
+Column_A1B1C1 = [A(:,1),B(:,1),C(:,1)];
+disp('Column_A1B1C1 = ')
+disp(Column_A1B1C1)
+
+% c
+Row_A2B2C2 = [A(2,:);B(2,:);C(2,:)];
+disp('Row_A2B2C2')
+disp(Row_A2B2C2)
+
+% d
+number = ABC(1,2,3);
+fprintf('第1行、第2列、第3页的数值是%d。 \n',number)
+
+
+% 10.12
+thermocouple = [84.3 90.0 86.7
+                86.4 89.5 87.6
+                85.2 88.6 88.3
+                87.1 88.9 85.3
+                83.5 88.9 80.3
+                84.8 90.4 82.4
+                85.0 89.3 83.4
+                85.3 89.5 85.4
+                85.3 88.9 86.3
+                85.2 89.1 85.3
+                82.3 89.5 89.0
+                84.7 89.4 87.3
+                83.6 89.8 87.2];
+[rows,cols] = size(thermocouple);
+for k = 1:cols
+    file_name = ['thermocou-ple',num2str(k)]
+    date = thermocouple(:,k)
+    save(file_name,'date')
+end
+
+% 10.16
+A = ['aluminum'];
+B = ['copper'];
+C = ['iron'];
+D = ['molybdenum'];
+E = ['cobalt'];
+my_cellarray = {A,B,C,D,E};
+celldisp(my_cellarray)
+##### SOURCE END #####
+--></body></html>
